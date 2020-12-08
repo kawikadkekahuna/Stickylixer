@@ -1,0 +1,6 @@
+_build
+cover
+deps
+docs
+.elixir_ls
+.envrc
