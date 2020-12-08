@@ -2,5 +2,6 @@ _build
 cover
 deps
 docs
+doc
 .elixir_ls
 .envrc
