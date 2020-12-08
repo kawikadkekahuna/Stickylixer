@@ -8,7 +8,7 @@ An Elixir library for working with [Sticky](https://sticky.io/).
 Install the dependency.
 
 ```ex
-{:stickylixer, "~> 0.0.1"}
+{:stickylixer, "~> 0.1.1"}
 ```
 
 ## Configuration

@@ -4,7 +4,7 @@ defmodule Sticky.MixProject do
   def project do
     [
       app: :stickylixer,
-      version: "0.1.0",
+      version: "0.1.1",
       elixir: "~> 1.9",
       elixirc_paths: elixirc_paths(Mix.env()),
       description: "Sticky.io Elixir Client",
