@@ -35,8 +35,8 @@ defmodule Sticky.Request do
 
   defp build_client() do
     client(
-      Application.get_env(:sticky, :api_key),
-      Application.get_env(:sticky, :api_url)
+      Application.get_env(:stickylixer, :api_key),
+      Application.get_env(:stickylixer, :api_url)
     )
   end
 

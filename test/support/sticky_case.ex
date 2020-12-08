@@ -18,7 +18,7 @@ defmodule Sticky.StickyCase do
   end
 
   def sticky_base_url() do
-    Application.get_env(:sticky, :api_url)
+    Application.get_env(:stickylixer, :api_url)
   end
 
   @doc """
