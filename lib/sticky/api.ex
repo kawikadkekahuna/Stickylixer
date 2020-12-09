@@ -40,8 +40,8 @@ defmodule Sticky.API do
       {:ok, %{body: %{"response_code" => "100"} = body}} ->
         {:ok, body}
 
-      {:ok, %{body: %{"response_code" => _code, "response_message" => message}}} ->
-        {:error, message}
+      {:ok, %{body: %{"response_code" => code}}} ->
+        {:error, Sticky.CodeDefinitions.find_response_reason(code)}
 
       {:ok, %{status: status, body: body}} when status == 200 ->
         {:ok, body}
