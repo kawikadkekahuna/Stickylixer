@@ -130,8 +130,21 @@ defmodule Sticky.Orders do
     |> make_request()
   end
 
+
+  def order_view(order_id) when is_bitstring(order_id) do
+    try do
+      {order_id, _} = Integer.parse(order_id)
+      order_view(%{order_id: order_id})
+    catch
+      _,_ ->
+      raise "Order id must be a number"
+    end
+  end
+
+  def order_view(order_id) when is_integer(order_id), do: order_view(%{order_id: order_id})
+
   def order_view(params) do
-    new()
+    {order_id, _} = new()
     |> put_endpoint("/order_view")
     |> put_method(:post)
     |> put_params(params)

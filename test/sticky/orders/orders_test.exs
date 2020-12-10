@@ -119,4 +119,21 @@ defmodule Sticky.OrdersTest do
     assert {:ok, _} = Sticky.Orders.three_d_redirect(%{offer_id: 1})
     assert_sticky_requested(:post, "/v1/three_d_redirect")
   end
+
+  test "order_view/1 accepts an integer" do
+    assert {:ok, _} = Sticky.Orders.order_view(42)
+    assert_sticky_requested(:post, "/v1/order_view")
+  end
+
+  test "order_view/1 accepts a stringed-number " do
+    assert {:ok, _} = Sticky.Orders.order_view("42")
+    assert_sticky_requested(:post, "/v1/order_view")
+  end
+
+  test "order_view/1 raises when given a non-number" do
+    assert_raise(RuntimeError, ~r/id must be a number/, fn ->
+      Sticky.Orders.order_view("foo")
+      assert_sticky_requested(:post, "/v1/order_view")
+    end)
+  end
 end
