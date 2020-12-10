@@ -30,4 +30,5 @@ iex(1)> Sticky.Credentials.validate_credentials
 {:ok, %{"response_code" => "100"}}
 ```
 
-For a list of (most) available methods available, checkout the [Sticky.io v1 docs](https://developer-prod.sticky.io/#60631517-0146-4ec9-a434-5b5cf132a76a).  (NOTE: `Payments` and `Members` endpoints are currently unsupported)
+For a list of (most) available methods available, checkout the [Sticky.io v1 docs](https://developer-prod.sticky.io/#60631517-0146-4ec9-a434-5b5cf132a76a).  (NOTE: The `Members` endpoint is currently unsupported.)
+
