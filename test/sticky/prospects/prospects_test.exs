@@ -28,4 +28,21 @@ defmodule StickyTest.ProspectsTest do
     assert {:ok, _} = Sticky.Prospects.prospect_view(%{offer_id: 42})
     assert_sticky_requested(:post, "/v1/prospect_view")
   end
+
+  test "prospect_view/1 accepts an integer" do
+    assert {:ok, _} = Sticky.Prospects.prospect_view(42)
+    assert_sticky_requested(:post, "/v1/prospect_view")
+  end
+
+  test "prospect_view/1 accepts a stringed-number " do
+    assert {:ok, _} = Sticky.Prospects.prospect_view("42")
+    assert_sticky_requested(:post, "/v1/prospect_view")
+  end
+
+  test "prospect_view/1 raises when given a non-number" do
+    assert_raise(RuntimeError, ~r/id must be a number/, fn ->
+      Sticky.Prospects.prospect_view("foo")
+      assert_sticky_requested(:post, "/v1/prospect_view")
+    end)
+  end
 end
